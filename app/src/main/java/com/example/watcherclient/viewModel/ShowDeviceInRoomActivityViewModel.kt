@@ -35,4 +35,10 @@ class ShowDeviceInRoomActivityViewModel:  ViewModel(){
             ApiClients.roomAPIClient.removeMember(user_id, room_id, member_id)
         }
     }
+
+    fun addDevice(user_id: String, room_id: String, device_id: String){
+        viewModelScope.launch {
+            ApiClients.roomAPIClient.addDevice(user_id, room_id, device_id)
+        }
+    }
 }

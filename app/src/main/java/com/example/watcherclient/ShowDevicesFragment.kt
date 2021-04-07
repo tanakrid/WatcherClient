@@ -32,6 +32,7 @@ class ShowDevicesFragment : Fragment() {
                 val key = data.keys.toList()[it]
                 intent.putExtra("room_id", key)
                 intent.putExtra("user_id", userID)
+                intent.putExtra("room_name", data[key]?.room_name)
                 startActivity(intent)
             }
         })

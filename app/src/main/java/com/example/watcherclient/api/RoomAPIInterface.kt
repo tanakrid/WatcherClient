@@ -17,24 +17,6 @@ interface RoomAPIInterface {
     suspend fun showAll(@Field("user_id") user_id: String): Map<String, Room>
 
     @FormUrlEncoded
-    @POST("/api/rooms/editRoomName/")
-    suspend fun editRoomName(@Field("user_id") user_id: String
-                             , @Field("room_id") room_id: String
-                             , @Field("room_name") room_name: String): String
-
-    @FormUrlEncoded
-    @POST("/api/rooms/editDesc/")
-    suspend fun editDesc(@Field("user_id") user_id: String
-                             , @Field("room_id") room_id: String
-                             , @Field("desc") desc: String): String
-
-    @FormUrlEncoded
-    @POST("/api/rooms/editLimitNumber/")
-    suspend fun editLimitNumber(@Field("user_id") user_id: String
-                         , @Field("room_id") room_id: String
-                         , @Field("limit_num") limit_num: Int): String
-
-    @FormUrlEncoded
     @POST("/api/rooms/showMember/")
     suspend fun showMember(@Field("user_id") user_id: String): Map<String, MemberInRoom>
 
