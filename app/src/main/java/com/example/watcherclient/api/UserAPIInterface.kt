@@ -1,6 +1,7 @@
 package com.example.watcherclient.api
 
 import com.example.watcherclient.model.Person
+import com.example.watcherclient.model.User
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -16,6 +17,10 @@ interface UserAPIInterface {
     @FormUrlEncoded
     @POST("/api/users/show/")
     suspend fun show(@Field("user_id") user_id: String): Person
+
+    @FormUrlEncoded
+    @POST("/api/users/profile/")
+    suspend fun showProfile(@Field("user_id") user_id: String): User
 
     @FormUrlEncoded
     @POST("/api/login/")
