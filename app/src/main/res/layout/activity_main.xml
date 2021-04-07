@@ -14,10 +14,13 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="68dp"
             android:text="Login"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorTitle"
             app:layout_constraintBottom_toTopOf="@+id/signUpButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -25,10 +28,13 @@
 
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="204dp"
             android:text="Sign up"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
