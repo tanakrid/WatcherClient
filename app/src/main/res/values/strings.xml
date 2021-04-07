@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">WatcherClient</string>
+    <string name="loginButton">login</string>
+    <string name="logoTextView">Watcher</string>
+    <string name="signupButton">Signup</string>
+    <string name="forgetPasswordTextView">Forget Password</string>
+    <string name="submitButton">Submit</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="hintUserNameEditText">User name</string>
+    <string name="hintPasswordEditText">Password</string>
+    <string name="hintRePasswordEditText">Repassword</string>
+    <string name="emailEditText">Email</string>
+    <string name="roomNameTextView">Room name</string>
+    <string name="onlineStatusTextView">Status</string>
+    <string name="currentPersonNumberTextView">Current/Total number</string>
+    <string name="room_item">Rooms</string>
+    <string name="people_item">Teams</string>
+    <string name="camera_device_item">Camera Devices</string>
+    <string name="profile_item">Profile</string>
+    <string name="change_password_item">Change Password</string>
+    <string name="logout_item">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_content">-- No content --</string>
+</resources>

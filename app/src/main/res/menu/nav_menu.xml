@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeMenu"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item
+        android:id="@+id/notificationMenu"
+        android:title="notify"
+        android:icon="@drawable/ic_baseline_notifications_24"/>
+    <item
+        android:id="@+id/profileMenu"
+        android:title="Profile"
+        android:icon="@drawable/ic_action_person"/>
+    <item
+        android:id="@+id/cameraMenu"
+        android:title="Devices"
+        android:icon="@drawable/ic_action_camera_device"/>
+    <item
+        android:id="@+id/membersMenu"
+        android:title="Members"
+        android:icon="@drawable/ic_action_people"/>
+</menu>
