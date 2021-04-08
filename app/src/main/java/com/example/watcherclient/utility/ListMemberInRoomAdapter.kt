@@ -35,7 +35,7 @@ class ListMemberInRoomAdapter(private val dataSet: List<Person>, private val lis
         }
 
         holder.memberCardView.setOnClickListener {
-
+            listener2(position)
         }
     }
 }

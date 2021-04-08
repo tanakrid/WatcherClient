@@ -18,6 +18,7 @@ class ShowDeviceInRoomActivityViewModel:  ViewModel(){
             val devices: ArrayList<Device> = ArrayList()
             for (device_id in room.devices_id){
                 val device: Device = ApiClients.roomAPIClient.showSingleDevice(device_id)
+                device.device_id = device_id
                 devices.add(device)
             }
             myResponseList.value = devices
@@ -41,4 +42,11 @@ class ShowDeviceInRoomActivityViewModel:  ViewModel(){
             ApiClients.roomAPIClient.addDevice(user_id, room_id, device_id)
         }
     }
+
+    fun removeDevice(user_id: String, room_id: String, device_id: String){
+        viewModelScope.launch{
+            ApiClients.roomAPIClient.removeDevice(user_id, room_id, device_id)
+        }
+    }
+
 }

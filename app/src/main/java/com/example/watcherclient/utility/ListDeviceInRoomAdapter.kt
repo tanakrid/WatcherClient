@@ -27,7 +27,6 @@ class ListDeviceInRoomAdapter(private val dataSet: List<Device>, private val lis
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.deviceNameTextView.text = dataSet[position].device_id
-
         holder.removeButton.setOnClickListener {
             listener(position)
         }

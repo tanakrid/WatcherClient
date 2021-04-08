@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.watcherclient.utility.ListMemberInRoomAdapter
 import com.example.watcherclient.viewModel.ShowMemberInRoomActivityViewModel
+import com.google.zxing.integration.android.IntentIntegrator
+import com.journeyapps.barcodescanner.CaptureActivity
 import kotlinx.android.synthetic.main.activity_manage_member_in_room.*
 
 class ManageMemberInRoomActivity : AppCompatActivity() {
@@ -22,14 +24,14 @@ class ManageMemberInRoomActivity : AppCompatActivity() {
 
         titleNameTextView.text = roomName
 
-        deviceListRecyclerview.apply {
+        memberListRecyclerview.apply {
             layoutManager = LinearLayoutManager(context)
         }
 
         viewModel.showMember(userID, roomID)
         viewModel.myResponseList.observe(this, Observer {
             val data = it
-            deviceListRecyclerview.adapter = ListMemberInRoomAdapter(it, {
+            memberListRecyclerview.adapter = ListMemberInRoomAdapter(it, {
                 val intent = Intent(this, DeleteMemberPopupActivity::class.java)
                 intent.putExtra("popuptitle", "Remove Room")
                 intent.putExtra("darkstatusbar", false)
@@ -40,7 +42,9 @@ class ManageMemberInRoomActivity : AppCompatActivity() {
                 intent.putExtra("message", "Are you sure to remove $roomName")
                 startActivity(intent)
             },{
-
+                val intent = Intent(this, ShowUserProfileActivity::class.java)
+                intent.putExtra("user_id", data[it].user_id)
+                startActivity(intent)
             })
 
             if (it.isNotEmpty()){
@@ -54,6 +58,35 @@ class ManageMemberInRoomActivity : AppCompatActivity() {
             Toast.makeText(this, "Add member id $user_id complete", Toast.LENGTH_LONG).show()
         }
 
+        scanQRcodeButton.setOnClickListener {
+            scanQRCode()
+        }
+
+    }
+
+    private fun scanQRCode(){
+        val integrator = IntentIntegrator(this).apply {
+            captureActivity = CaptureActivity::class.java
+            setOrientationLocked(false)
+            setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
+            setPrompt("Scanning Code")
+        }
+        integrator.initiateScan()
+    }
+
+    // Get the results:
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.contents == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+            } else {
+                editTextTextPersonName.setText(result.contents)
+                Toast.makeText(this, "Add device(${result.contents}) complete", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
 }

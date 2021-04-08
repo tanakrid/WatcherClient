@@ -28,6 +28,8 @@ class ManageDeviceInRoomActivity : AppCompatActivity() {
         roomID = intent.getStringExtra("room_id")
         roomName = intent.getStringExtra("room_name")
 
+        titleNameTextView.text = roomName
+
         deviceListRecyclerview.apply {
             layoutManager = LinearLayoutManager(context)
         }
@@ -47,7 +49,7 @@ class ManageDeviceInRoomActivity : AppCompatActivity() {
                 intent.putExtra("room_id", roomID)
                 intent.putExtra("user_id", userID)
                 intent.putExtra("device_id", data[it].device_id)
-                intent.putExtra("message", "Are you sure to remove $roomName")
+                intent.putExtra("message", "Are you sure to remove ${data[it].device_id}")
                 startActivity(intent)
             }
 
